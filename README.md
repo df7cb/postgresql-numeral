@@ -8,6 +8,8 @@ Christoph Berg <cb@df7cb.de>
 
 Planned: English and roman numbers
 
+[![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numbers.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numbers)
+
 License
 -------
 
