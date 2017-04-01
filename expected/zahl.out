@@ -1,0 +1,396 @@
+SELECT '0'::zahl;
+ zahl 
+------
+ null
+(1 row)
+
+SELECT '1'::zahl;
+ zahl 
+------
+ eins
+(1 row)
+
+SELECT '-2'::zahl;
+    zahl    
+------------
+ minus zwei
+(1 row)
+
+SELECT 'null'::zahl;
+ zahl 
+------
+ null
+(1 row)
+
+SELECT 'eins'::zahl;
+ zahl 
+------
+ eins
+(1 row)
+
+SELECT 'minus eins'::zahl;
+    zahl    
+------------
+ minus eins
+(1 row)
+
+SELECT 'zwei'::zahl;
+ zahl 
+------
+ zwei
+(1 row)
+
+SELECT 'drei'::zahl;
+ zahl 
+------
+ drei
+(1 row)
+
+SELECT 'vier'::zahl;
+ zahl 
+------
+ vier
+(1 row)
+
+SELECT 'fünf'::zahl;
+ zahl 
+------
+ fünf
+(1 row)
+
+SELECT 'sechs'::zahl;
+ zahl  
+-------
+ sechs
+(1 row)
+
+SELECT 'sieben'::zahl;
+  zahl  
+--------
+ sieben
+(1 row)
+
+SELECT 'acht'::zahl;
+ zahl 
+------
+ acht
+(1 row)
+
+SELECT 'neun'::zahl;
+ zahl 
+------
+ neun
+(1 row)
+
+SELECT 'zehn'::zahl;
+ zahl 
+------
+ zehn
+(1 row)
+
+SELECT 'elf'::zahl;
+ zahl 
+------
+ elf
+(1 row)
+
+SELECT 'zwölf'::zahl;
+ zahl  
+-------
+ zwölf
+(1 row)
+
+SELECT 'dreizehn'::zahl;
+   zahl   
+----------
+ dreizehn
+(1 row)
+
+SELECT 'vierzehn'::zahl;
+   zahl   
+----------
+ vierzehn
+(1 row)
+
+SELECT 'fünfzehn'::zahl;
+   zahl   
+----------
+ fünfzehn
+(1 row)
+
+SELECT 'sechzehn'::zahl;
+   zahl   
+----------
+ sechzehn
+(1 row)
+
+SELECT 'siebzehn'::zahl;
+   zahl   
+----------
+ siebzehn
+(1 row)
+
+SELECT 'achtzehn'::zahl;
+   zahl   
+----------
+ achtzehn
+(1 row)
+
+SELECT 'neunzehn'::zahl;
+   zahl   
+----------
+ neunzehn
+(1 row)
+
+SELECT 'zwanzig'::zahl;
+  zahl   
+---------
+ zwanzig
+(1 row)
+
+SELECT 'einundzwanzig'::zahl;
+     zahl      
+---------------
+ einundzwanzig
+(1 row)
+
+SELECT 'dreißig'::zahl;
+  zahl   
+---------
+ dreißig
+(1 row)
+
+SELECT 'zweiunddreißig'::zahl;
+      zahl      
+----------------
+ zweiunddreißig
+(1 row)
+
+SELECT 'vierzig'::zahl;
+  zahl   
+---------
+ vierzig
+(1 row)
+
+SELECT 'fünfzig'::zahl;
+  zahl   
+---------
+ fünfzig
+(1 row)
+
+SELECT 'sechzig'::zahl;
+  zahl   
+---------
+ sechzig
+(1 row)
+
+SELECT 'siebzig'::zahl;
+  zahl   
+---------
+ siebzig
+(1 row)
+
+SELECT 'achtzig'::zahl;
+  zahl   
+---------
+ achtzig
+(1 row)
+
+SELECT 'neunzig'::zahl;
+  zahl   
+---------
+ neunzig
+(1 row)
+
+SELECT 'hundert'::zahl;
+    zahl    
+------------
+ einhundert
+(1 row)
+
+SELECT 'einhundert'::zahl;
+    zahl    
+------------
+ einhundert
+(1 row)
+
+SELECT 'hunderteins'::zahl;
+      zahl      
+----------------
+ einhunderteins
+(1 row)
+
+SELECT 'einhunderteins'::zahl;
+      zahl      
+----------------
+ einhunderteins
+(1 row)
+
+SELECT 'einhunderteinundzwanzig'::zahl;
+          zahl           
+-------------------------
+ einhunderteinundzwanzig
+(1 row)
+
+SELECT 'zweihundert'::zahl;
+    zahl     
+-------------
+ zweihundert
+(1 row)
+
+SELECT 'zweihunderteins'::zahl;
+      zahl       
+-----------------
+ zweihunderteins
+(1 row)
+
+SELECT 'zweihundertzweiunddreißig'::zahl;
+           zahl            
+---------------------------
+ zweihundertzweiunddreißig
+(1 row)
+
+SELECT 'tausend'::zahl;
+    zahl    
+------------
+ eintausend
+(1 row)
+
+SELECT 'eintausend'::zahl;
+    zahl    
+------------
+ eintausend
+(1 row)
+
+SELECT 'eintausendeins'::zahl;
+      zahl      
+----------------
+ eintausendeins
+(1 row)
+
+SELECT 'tausendeinhundert'::zahl;
+         zahl         
+----------------------
+ eintausendeinhundert
+(1 row)
+
+SELECT 'eintausendeinhundert'::zahl;
+         zahl         
+----------------------
+ eintausendeinhundert
+(1 row)
+
+SELECT 'elfhundert'::zahl;
+         zahl         
+----------------------
+ eintausendeinhundert
+(1 row)
+
+SELECT 'eintausendeinhunderteins'::zahl;
+           zahl           
+--------------------------
+ eintausendeinhunderteins
+(1 row)
+
+SELECT 'hunderttausend'::zahl;
+       zahl        
+-------------------
+ einhunderttausend
+(1 row)
+
+SELECT 'einhunderttausend'::zahl;
+       zahl        
+-------------------
+ einhunderttausend
+(1 row)
+
+SELECT 'einhunderteintausend'::zahl;
+         zahl         
+----------------------
+ einhunderteintausend
+(1 row)
+
+SELECT 'zweihunderttausend'::zahl;
+        zahl        
+--------------------
+ zweihunderttausend
+(1 row)
+
+SELECT 'eine Million'::zahl;
+     zahl     
+--------------
+ eine Million
+(1 row)
+
+SELECT 'eine Million eins'::zahl;
+       zahl        
+-------------------
+ eine Million eins
+(1 row)
+
+SELECT 'eine Million einhundert'::zahl;
+          zahl           
+-------------------------
+ eine Million einhundert
+(1 row)
+
+SELECT 'eine Million eintausend'::zahl;
+          zahl           
+-------------------------
+ eine Million eintausend
+(1 row)
+
+SELECT 'eine Million einhunderttausend'::zahl;
+              zahl              
+--------------------------------
+ eine Million einhunderttausend
+(1 row)
+
+SELECT 'zwei Millionen'::zahl;
+      zahl      
+----------------
+ zwei Millionen
+(1 row)
+
+SELECT 'hundert Millionen'::zahl;
+         zahl         
+----------------------
+ einhundert Millionen
+(1 row)
+
+SELECT 'eine Milliarde'::zahl;
+      zahl      
+----------------
+ eine Milliarde
+(1 row)
+
+SELECT 'eine Milliarde eine Million'::zahl;
+            zahl             
+-----------------------------
+ eine Milliarde eine Million
+(1 row)
+
+SELECT 'eine Milliarde eine Million eintausend'::zahl;
+                  zahl                  
+----------------------------------------
+ eine Milliarde eine Million eintausend
+(1 row)
+
+SELECT 'Billion'::zahl;
+     zahl     
+--------------
+ eine Billion
+(1 row)
+
+SELECT 'Billiarde'::zahl;
+      zahl      
+----------------
+ eine Billiarde
+(1 row)
+
+SELECT 'Trillion'::zahl;
+     zahl      
+---------------
+ eine Trillion
+(1 row)
+

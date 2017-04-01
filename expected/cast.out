@@ -1,0 +1,12 @@
+SELECT 'vier'::zahl::bigint;
+ int8 
+------
+    4
+(1 row)
+
+SELECT 'vier'::zahl + 5;
+ ?column? 
+----------
+        9
+(1 row)
+

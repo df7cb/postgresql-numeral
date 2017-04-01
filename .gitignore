@@ -1,0 +1,9 @@
+regression.diffs
+regression.out
+results/
+tags
+*.o
+*.so
+*.tab.c
+*.tab.h
+*.yy.c
