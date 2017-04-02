@@ -1,4 +1,4 @@
-Source: postgresql-numbers
+Source: postgresql-numeral
 Section: database
 Priority: optional
 Maintainer: Christoph Berg <myon@debian.org>
@@ -8,15 +8,16 @@ Build-Depends:
  flex,
  postgresql-server-dev-all (>= 153~),
 Standards-Version: 3.9.8
-Vcs-Git: https://github.com/ChristophBerg/postgresql-numbers.git
-Vcs-Browser: https://github.com/ChristophBerg/postgresql-numbers
-Homepage: https://github.com/ChristophBerg/postgresql-numbers
+Vcs-Git: https://github.com/ChristophBerg/postgresql-numeral.git
+Vcs-Browser: https://github.com/ChristophBerg/postgresql-numeral
+Homepage: https://github.com/ChristophBerg/postgresql-numeral
 
-Package: postgresql-9.6-numbers
+Package: postgresql-9.6-numeral
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-9.6
-Description: textual numeric datatypes for PostgreSQL
- This module provides textual numeric datatypes for PostgreSQL.
+Description: numeral datatypes for PostgreSQL
+ This module provides numeric data types for PostgreSQL that use
+ numerals (words instead of digits) for input and output.
  .
-  * zahl: German numbers (eins, zwei, drei, ...)
+  * zahl: German numerals (eins, zwei, drei, ...)
 

@@ -41,5 +41,6 @@ install:
 script:
   - pg_buildext updatecontrol
   - dpkg-buildpackage -us -uc -rfakeroot
+  - for deb in ../*.deb; do echo "$deb:"; dpkg-deb --info $deb; dpkg-deb --contents $deb; done
   - sudo debi
-  - pg_buildext installcheck
+  - pg_buildext -i '--locale=C.UTF-8' installcheck
