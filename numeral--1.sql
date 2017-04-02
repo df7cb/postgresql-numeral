@@ -17,14 +17,14 @@ GNU General Public License for more details.
 CREATE TYPE zahl;
 
 CREATE OR REPLACE FUNCTION zahl_in(cstring)
-  RETURNS zahl
-  AS '$libdir/numeral'
-  LANGUAGE C IMMUTABLE STRICT;
+	RETURNS zahl
+	AS '$libdir/numeral'
+	LANGUAGE C IMMUTABLE STRICT;
 
 CREATE OR REPLACE FUNCTION zahl_out(zahl)
-  RETURNS cstring
-  AS '$libdir/numeral'
-  LANGUAGE C IMMUTABLE STRICT;
+	RETURNS cstring
+	AS '$libdir/numeral'
+	LANGUAGE C IMMUTABLE STRICT;
 
 CREATE TYPE zahl (
 	internallength = 8,
@@ -43,59 +43,167 @@ CREATE CAST (zahl AS bigint)
 
 /* steal bigint's operators */
 
-CREATE FUNCTION int8pl(zahl, zahl)
-	RETURNS zahl
-	AS 'int8pl'
-	LANGUAGE internal IMMUTABLE STRICT;
+CREATE FUNCTION zahleq(zahl, zahl) RETURNS boolean
+	AS 'int8eq' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR = (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahleq,
+	commutator = =, negator = <>,
+	restrict = eqsel, join = eqjoinsel,
+	hashes, merges
+);
+
+CREATE FUNCTION zahlne(zahl, zahl) RETURNS boolean
+	AS 'int8ne' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR <> (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlne,
+	commutator = <>, negator = =,
+	restrict = neqsel, join = neqjoinsel
+);
+
+CREATE FUNCTION zahllt(zahl, zahl) RETURNS boolean
+	AS 'int8lt' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR < (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahllt,
+	commutator = >, negator = >=,
+	restrict = scalarltsel, join = scalarltjoinsel
+);
+
+CREATE FUNCTION zahlgt(zahl, zahl) RETURNS boolean
+	AS 'int8gt' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR > (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlgt,
+	commutator = <, negator = <=,
+	restrict = scalargtsel, join = scalargtjoinsel
+);
+
+CREATE FUNCTION zahlle(zahl, zahl) RETURNS boolean
+	AS 'int8le' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR <= (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlle,
+	commutator = >=, negator = >,
+	restrict = scalarltsel, join = scalarltjoinsel
+);
+
+CREATE FUNCTION zahlge(zahl, zahl) RETURNS boolean
+	AS 'int8ge' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR >= (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlge,
+	commutator = <=, negator = <,
+	restrict = scalargtsel, join = scalargtjoinsel
+);
+
+
+CREATE FUNCTION zahlmod(zahl, zahl) RETURNS zahl
+	AS 'int8mod' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR % (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlmod
+);
+
+CREATE FUNCTION zahlpl(zahl, zahl) RETURNS zahl
+	AS 'int8pl' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR + (
-	leftarg = zahl,
-	rightarg = zahl,
-	procedure = int8pl,
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlpl,
 	commutator = +
 );
 
-CREATE FUNCTION int8mi(zahl, zahl)
-	RETURNS zahl
-	AS 'int8mi'
-	LANGUAGE internal IMMUTABLE STRICT;
+CREATE FUNCTION zahlmi(zahl, zahl) RETURNS zahl
+	AS 'int8mi' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR - (
-	leftarg = zahl,
-	rightarg = zahl,
-	procedure = int8mi
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlmi
 );
 
-CREATE FUNCTION int8um(zahl)
-	RETURNS zahl
-	AS 'int8um'
-	LANGUAGE internal IMMUTABLE STRICT;
-
-CREATE OPERATOR - (
-	rightarg = zahl,
-	procedure = int8um
-);
-
-CREATE FUNCTION int8mul(zahl, zahl)
-	RETURNS zahl
-	AS 'int8mul'
-	LANGUAGE internal IMMUTABLE STRICT;
+CREATE FUNCTION zahlmul(zahl, zahl) RETURNS zahl
+	AS 'int8mul' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR * (
-	leftarg = zahl,
-	rightarg = zahl,
-	procedure = int8mul,
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlmul,
 	commutator = *
 );
 
-CREATE FUNCTION int8div(zahl, zahl)
-	RETURNS zahl
-	AS 'int8div'
-	LANGUAGE internal IMMUTABLE STRICT;
+CREATE FUNCTION zahldiv(zahl, zahl) RETURNS zahl
+	AS 'int8div' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR / (
-	leftarg = zahl,
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahldiv
+);
+
+CREATE FUNCTION zahland(zahl, zahl) RETURNS zahl
+	AS 'int8and' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR & (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahland,
+	commutator = &
+);
+
+CREATE FUNCTION zahlor(zahl, zahl) RETURNS zahl
+	AS 'int8or' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR | (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlor,
+	commutator = |
+);
+
+CREATE FUNCTION zahlxor(zahl, zahl) RETURNS zahl
+	AS 'int8xor' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR # (
+	leftarg = zahl, rightarg = zahl,
+	procedure = zahlxor,
+	commutator = #
+);
+
+
+CREATE FUNCTION zahlabs(zahl) RETURNS zahl
+	AS 'int8abs' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR @ (
 	rightarg = zahl,
-	procedure = int8div
+	procedure = zahlabs
+);
+
+CREATE FUNCTION zahlum(zahl) RETURNS zahl
+	AS 'int8um' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR - (
+	rightarg = zahl,
+	procedure = zahlum
+);
+
+CREATE FUNCTION zahlnot(zahl) RETURNS zahl
+	AS 'int8not' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR ~ (
+	rightarg = zahl,
+	procedure = zahlnot
+);
+
+CREATE FUNCTION zahlup(zahl) RETURNS zahl
+	AS 'int8up' LANGUAGE internal IMMUTABLE STRICT;
+
+CREATE OPERATOR + (
+	rightarg = zahl,
+	procedure = zahlup
 );
 

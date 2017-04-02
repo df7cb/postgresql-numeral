@@ -2,7 +2,7 @@ MODULE_big = numeral
 OBJS = numeral.o zahllexer.yy.o zahlparser.tab.o zahl.o
 EXTENSION = numeral
 DATA = numeral--1.sql
-REGRESS = extension zahl cast
+REGRESS = extension zahl operator
 EXTRA_CLEAN = *.yy.* *.tab.*
 
 PG_CONFIG = pg_config

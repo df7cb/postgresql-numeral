@@ -45,7 +45,7 @@ input: /* parser entry */
   INT { *numeral_parse_result = $1; }
 | ZERO { *numeral_parse_result = 0; }
 | expr { *numeral_parse_result = $1; }
-| MINUS expr { *numeral_parse_result = -$1; }
+| MINUS expr { *numeral_parse_result = -$2; }
 ;
 
 expr: /* general number */

@@ -1,0 +1,108 @@
+SELECT 'vier'::zahl::bigint;
+ int8 
+------
+    4
+(1 row)
+
+SELECT 'hundert'::zahl = 'einhundert';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'drei'::zahl <> 'vier';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'zehn'::zahl < 'elf';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'acht'::zahl > 'sieben';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'neun'::zahl <= 'neun';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'eins'::zahl >= 'null';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'zehn'::zahl % 'drei';
+ ?column? 
+----------
+ eins
+(1 row)
+
+SELECT 'acht'::zahl + 'vier';
+ ?column? 
+----------
+ zwölf
+(1 row)
+
+SELECT 'neun'::zahl - 'vier';
+ ?column? 
+----------
+ fünf
+(1 row)
+
+SELECT 'fünf'::zahl * 'vier';
+ ?column? 
+----------
+ zwanzig
+(1 row)
+
+SELECT 'zwölf'::zahl / 'drei';
+ ?column? 
+----------
+ vier
+(1 row)
+
+SELECT 'zehn'::zahl & 'sechs';
+ ?column? 
+----------
+ zwei
+(1 row)
+
+SELECT 'zwei'::zahl | 'vier';
+ ?column? 
+----------
+ sechs
+(1 row)
+
+SELECT @ 'minus drei'::zahl;
+ ?column? 
+----------
+ drei
+(1 row)
+
+SELECT - 'vier'::zahl;
+  ?column?  
+------------
+ minus vier
+(1 row)
+
+SELECT ~ 'fünfzehn'::zahl;
+    ?column?    
+----------------
+ minus sechzehn
+(1 row)
+
+SELECT + 'sechs'::zahl;
+ ?column? 
+----------
+ sechs
+(1 row)
+
