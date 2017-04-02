@@ -5,4 +5,4 @@ typedef long long Zahl;
 /* prototypes */
 
 const char *zahl_cstring (Zahl zahl);
-int numbers_parse (char *s, Zahl *zahl);
+int zahl_parse (char *s, Zahl *zahl);

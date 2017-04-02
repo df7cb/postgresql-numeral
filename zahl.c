@@ -12,9 +12,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
 
-/* format German numbers */
+/* format German numerals */
 
-#include <numbers.h>
+#include <numeral.h>
 #include <postgres.h>
 
 static const char *zahl_one[] = {

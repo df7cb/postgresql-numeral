@@ -14,19 +14,19 @@ GNU General Public License for more details.
 
 %{
 #include <strings.h> /* bzero */
-#include "numbers.h"
+#include "numeral.h"
 
 /* flex/bison prototypes */
-int yylex (void);
-struct yynumbers_buffer_state *yynumbers_scan_string(char *str);
-void yynumbers_delete_buffer(struct yynumbers_buffer_state *buffer);
-void yyerror (char const *s);
+int yyzahllex (void);
+struct yyzahl_buffer_state *yyzahl_scan_string(char *str);
+void yyzahl_delete_buffer(struct yyzahl_buffer_state *buffer);
+void yyzahlerror (char const *s);
 
-static Zahl *numbers_parse_result; /* parsing result gets stored here */
+static Zahl *numeral_parse_result; /* parsing result gets stored here */
 %}
 
 %define parse.error verbose
-%define api.prefix {yynumbers}
+%define api.prefix {yyzahl}
 
 %define api.value.type {Zahl}
 %token INT
@@ -42,10 +42,10 @@ static Zahl *numbers_parse_result; /* parsing result gets stored here */
 %%
 
 input: /* parser entry */
-  INT { *numbers_parse_result = $1; }
-| ZERO { *numbers_parse_result = 0; }
-| expr { *numbers_parse_result = $1; }
-| MINUS expr { *numbers_parse_result = -$1; }
+  INT { *numeral_parse_result = $1; }
+| ZERO { *numeral_parse_result = 0; }
+| expr { *numeral_parse_result = $1; }
+| MINUS expr { *numeral_parse_result = -$1; }
 ;
 
 expr: /* general number */
@@ -98,14 +98,14 @@ suffix_xx: /* hundred-and-N */
 
 /* parse a given string and return the result via the second argument */
 int
-numbers_parse (char *s, Zahl *zahl)
+zahl_parse (char *s, Zahl *zahl)
 {
-	struct yynumbers_buffer_state *buf;
+	struct yyzahl_buffer_state *buf;
 	int ret;
 
-	numbers_parse_result = zahl;
-	buf = yynumbers_scan_string(s);
-	ret = yynumbersparse();
-	yynumbers_delete_buffer(buf);
+	numeral_parse_result = zahl;
+	buf = yyzahl_scan_string(s);
+	ret = yyzahlparse();
+	yyzahl_delete_buffer(buf);
 	return ret;
 }

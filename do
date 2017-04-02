@@ -15,8 +15,8 @@ for PGVERSION in ${*:-10 9.6 9.5 9.4}; do
 	make clean
 	make PG_CONFIG=$PG_CONFIG PROFILE="-Werror"
 	sudo make install PG_CONFIG=$PG_CONFIG
-	psql -c "DROP EXTENSION IF EXISTS numbers CASCADE"
-	#psql -c "CREATE EXTENSION IF NOT EXISTS numbers"
+	psql -c "DROP EXTENSION IF EXISTS numeral CASCADE"
+	#psql -c "CREATE EXTENSION IF NOT EXISTS numeral"
 	if ! make installcheck REGRESS_OPTS="--use-existing --dbname=postgres" PG_CONFIG=$PG_CONFIG; then
 		cat regression.diffs
 		exit 1

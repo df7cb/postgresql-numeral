@@ -1,9 +1,9 @@
-MODULE_big = numbers
-OBJS = numbers.o lexer.yy.o parser.tab.o zahl.o
-EXTENSION = numbers
-DATA = numbers--1.sql
+MODULE_big = numeral
+OBJS = numeral.o zahllexer.yy.o zahlparser.tab.o zahl.o
+EXTENSION = numeral
+DATA = numeral--1.sql
 REGRESS = extension zahl cast
-EXTRA_CLEAN = lexer.yy.* parser.tab.*
+EXTRA_CLEAN = *.yy.* *.tab.*
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
@@ -12,19 +12,19 @@ include $(PGXS)
 # upgrade testing, not enabled by default
 #REGRESS += upgrade
 
-numbers.o: numbers.c numbers.h
+numeral.o: numeral.c numeral.h
 
-lexer.yy.c: lexer.l
+%.yy.c: %.l
 	flex -o $@ $<
 
-lexer.yy.o: numbers.h parser.tab.c # actually unitparse.tab.h
+zahllexer.yy.o: numeral.h zahlparser.tab.c # actually zahlparser.tab.h
 
-parser.tab.c: parser.y
+%.tab.c: %.y
 ifneq ($(shell bison --version | grep 'Bison..2'),)
-	echo "### bison 2 detected, using pre-built parser.tab.c and .h files ###" # remove this hack once wheezy and precise are gone
+	echo "### bison 2 detected, using pre-built *.tab.c and *.tab.h files ###" # remove this hack once wheezy and precise are gone
 	touch $@
 else
 	bison -d $<
 endif
 
-parser.tab.o: numbers.h
+zahlparser.tab.o: numeral.h

@@ -15,7 +15,7 @@ GNU General Public License for more details.
 #include "postgres.h"
 #include "fmgr.h"
 
-#include "numbers.h"
+#include "numeral.h"
 
 /* module initialization */
 
@@ -30,12 +30,12 @@ _PG_init(void)
 
 /* input and output */
 
-char *yyerrstr; /* copy of error catched by yynumbererror() */
+char *yyerrstr; /* copy of error catched by yyzahlrror() */
 
-void yynumberserror (char *s);
+void yyzahlerror (char *s);
 
 void
-yynumberserror (char *s)
+yyzahlerror (char *s)
 {
 	/* store error for later use in number_in */
 	yyerrstr = pstrdup(s);
@@ -49,10 +49,10 @@ zahl_in (PG_FUNCTION_ARGS)
 	char	*str = PG_GETARG_CSTRING(0);
 	Zahl	 zahl;
 
-	if (numbers_parse(str, &zahl) > 0)
+	if (zahl_parse(str, &zahl) > 0)
 		ereport(ERROR,
 				(errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
-				 errmsg("invalid input syntax for type numbers: \"%s\", %s",
+				 errmsg("invalid input syntax for type zahl: \"%s\", %s",
 					 str, yyerrstr)));
 
 	PG_RETURN_INT64(zahl);

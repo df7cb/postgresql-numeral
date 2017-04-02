@@ -1,14 +1,17 @@
-postgresql-numbers
+postgresql-numeral
 ==================
 Christoph Berg <cb@df7cb.de>
 
-**postgresql-numbers** provides textual numeric data types for PostgreSQL.
+**postgresql-numeral** provides numeric data types for PostgreSQL that use
+numerals (words instead of digits) for input and output.
 
-* zahl: German numbers (eins, zwei, drei, ...)
+Data types:
 
-Planned: English and roman numbers
+* *zahl*: German numerals (eins, zwei, drei, ...)
 
-[![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numbers.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numbers)
+Planned: English and roman numerals
+
+[![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numeral.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numeral)
 
 License
 -------
