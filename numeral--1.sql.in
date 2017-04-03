@@ -14,196 +14,199 @@ GNU General Public License for more details.
 
 -- type definition
 
-CREATE TYPE zahl;
+CREATE TYPE @TYPE@;
 
-CREATE OR REPLACE FUNCTION zahl_in(cstring)
-	RETURNS zahl
+CREATE OR REPLACE FUNCTION @TYPE@_in(cstring)
+	RETURNS @TYPE@
 	AS '$libdir/numeral'
 	LANGUAGE C IMMUTABLE STRICT;
 
-CREATE OR REPLACE FUNCTION zahl_out(zahl)
+CREATE OR REPLACE FUNCTION @TYPE@_out(@TYPE@)
 	RETURNS cstring
 	AS '$libdir/numeral'
 	LANGUAGE C IMMUTABLE STRICT;
 
-CREATE TYPE zahl (
+CREATE TYPE @TYPE@ (
 	internallength = 8,
-	input = zahl_in,
-	output = zahl_out,
+	input = @TYPE@_in,
+	output = @TYPE@_out,
 	passedbyvalue,
 	alignment = double,
 	category = 'N'
 );
 
-/* zahl is as good as bigint, make a cast */
+/* @TYPE@ is as good as bigint, make casts */
 
-CREATE CAST (zahl AS bigint)
+CREATE CAST (@TYPE@ AS bigint)
 	WITHOUT FUNCTION
 	AS IMPLICIT;
 
+CREATE CAST (bigint AS @TYPE@)
+	WITHOUT FUNCTION;
+
 /* steal bigint's operators */
 
-CREATE FUNCTION zahleq(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@eq(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8eq' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR = (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahleq,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@eq,
 	commutator = =, negator = <>,
 	restrict = eqsel, join = eqjoinsel,
 	hashes, merges
 );
 
-CREATE FUNCTION zahlne(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@ne(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8ne' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR <> (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlne,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@ne,
 	commutator = <>, negator = =,
 	restrict = neqsel, join = neqjoinsel
 );
 
-CREATE FUNCTION zahllt(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@lt(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8lt' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR < (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahllt,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@lt,
 	commutator = >, negator = >=,
 	restrict = scalarltsel, join = scalarltjoinsel
 );
 
-CREATE FUNCTION zahlgt(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@gt(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8gt' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR > (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlgt,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@gt,
 	commutator = <, negator = <=,
 	restrict = scalargtsel, join = scalargtjoinsel
 );
 
-CREATE FUNCTION zahlle(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@le(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8le' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR <= (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlle,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@le,
 	commutator = >=, negator = >,
 	restrict = scalarltsel, join = scalarltjoinsel
 );
 
-CREATE FUNCTION zahlge(zahl, zahl) RETURNS boolean
+CREATE FUNCTION @TYPE@ge(@TYPE@, @TYPE@) RETURNS boolean
 	AS 'int8ge' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR >= (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlge,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@ge,
 	commutator = <=, negator = <,
 	restrict = scalargtsel, join = scalargtjoinsel
 );
 
 
-CREATE FUNCTION zahlmod(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@mod(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8mod' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR % (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlmod
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@mod
 );
 
-CREATE FUNCTION zahlpl(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@pl(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8pl' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR + (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlpl,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@pl,
 	commutator = +
 );
 
-CREATE FUNCTION zahlmi(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@mi(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8mi' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR - (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlmi
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@mi
 );
 
-CREATE FUNCTION zahlmul(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@mul(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8mul' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR * (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlmul,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@mul,
 	commutator = *
 );
 
-CREATE FUNCTION zahldiv(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@div(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8div' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR / (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahldiv
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@div
 );
 
-CREATE FUNCTION zahland(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@and(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8and' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR & (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahland,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@and,
 	commutator = &
 );
 
-CREATE FUNCTION zahlor(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@or(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8or' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR | (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlor,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@or,
 	commutator = |
 );
 
-CREATE FUNCTION zahlxor(zahl, zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@xor(@TYPE@, @TYPE@) RETURNS @TYPE@
 	AS 'int8xor' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR # (
-	leftarg = zahl, rightarg = zahl,
-	procedure = zahlxor,
+	leftarg = @TYPE@, rightarg = @TYPE@,
+	procedure = @TYPE@xor,
 	commutator = #
 );
 
 
-CREATE FUNCTION zahlabs(zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@abs(@TYPE@) RETURNS @TYPE@
 	AS 'int8abs' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR @ (
-	rightarg = zahl,
-	procedure = zahlabs
+	rightarg = @TYPE@,
+	procedure = @TYPE@abs
 );
 
-CREATE FUNCTION zahlum(zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@um(@TYPE@) RETURNS @TYPE@
 	AS 'int8um' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR - (
-	rightarg = zahl,
-	procedure = zahlum
+	rightarg = @TYPE@,
+	procedure = @TYPE@um
 );
 
-CREATE FUNCTION zahlnot(zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@not(@TYPE@) RETURNS @TYPE@
 	AS 'int8not' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR ~ (
-	rightarg = zahl,
-	procedure = zahlnot
+	rightarg = @TYPE@,
+	procedure = @TYPE@not
 );
 
-CREATE FUNCTION zahlup(zahl) RETURNS zahl
+CREATE FUNCTION @TYPE@up(@TYPE@) RETURNS @TYPE@
 	AS 'int8up' LANGUAGE internal IMMUTABLE STRICT;
 
 CREATE OPERATOR + (
-	rightarg = zahl,
-	procedure = zahlup
+	rightarg = @TYPE@,
+	procedure = @TYPE@up
 );
 

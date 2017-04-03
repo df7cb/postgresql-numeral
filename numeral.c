@@ -15,8 +15,6 @@ GNU General Public License for more details.
 #include "postgres.h"
 #include "fmgr.h"
 
-#include "numeral.h"
-
 /* module initialization */
 
 PG_MODULE_MAGIC;
@@ -26,44 +24,5 @@ void _PG_init(void);
 void
 _PG_init(void)
 {
-}
-
-/* input and output */
-
-char *yyerrstr; /* copy of error catched by yyzahlrror() */
-
-void yyzahlerror (char *s);
-
-void
-yyzahlerror (char *s)
-{
-	/* store error for later use in number_in */
-	yyerrstr = pstrdup(s);
-}
-
-PG_FUNCTION_INFO_V1(zahl_in);
-
-Datum
-zahl_in (PG_FUNCTION_ARGS)
-{
-	char	*str = PG_GETARG_CSTRING(0);
-	Zahl	 zahl;
-
-	if (zahl_parse(str, &zahl) > 0)
-		ereport(ERROR,
-				(errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
-				 errmsg("invalid input syntax for type zahl: \"%s\", %s",
-					 str, yyerrstr)));
-
-	PG_RETURN_INT64(zahl);
-}
-
-PG_FUNCTION_INFO_V1(zahl_out);
-
-Datum
-zahl_out(PG_FUNCTION_ARGS)
-{
-	Zahl	zahl = PG_GETARG_INT64(0);
-	PG_RETURN_CSTRING(zahl_cstring(zahl));
 }
 

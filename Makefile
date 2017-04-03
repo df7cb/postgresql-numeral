@@ -1,8 +1,10 @@
 MODULE_big = numeral
-OBJS = numeral.o zahllexer.yy.o zahlparser.tab.o zahl.o
+OBJS = numeral.o \
+	   zahl.o zahllexer.yy.o zahlparser.tab.o \
+	   roman.o romanlexer.yy.o romanparser.tab.o
 EXTENSION = numeral
-DATA = numeral--1.sql
-REGRESS = extension zahl operator
+DATA_built = numeral--1.sql
+REGRESS = extension zahl operator roman
 EXTRA_CLEAN = *.yy.* *.tab.*
 
 PG_CONFIG = pg_config
@@ -28,3 +30,9 @@ else
 endif
 
 zahlparser.tab.o: numeral.h
+
+# extension sql
+%.sql: %.sql.in
+	for type in zahl roman; do \
+		sed -e "s/@TYPE@/$$type/g" < $< || exit; \
+	done > $@

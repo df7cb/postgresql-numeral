@@ -7,9 +7,10 @@ numerals (words instead of digits) for input and output.
 
 Data types:
 
-* *zahl*: German numerals (eins, zwei, drei, ...)
+* *roman*: Roman numerals (I, II, III, IV, ...)
+* *zahl*: German numerals (eins, zwei, drei, vier, ...)
 
-Planned: English and roman numerals
+Planned: English numerals
 
 [![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numeral.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numeral)
 

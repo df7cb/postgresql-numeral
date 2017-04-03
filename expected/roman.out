@@ -1,0 +1,204 @@
+SELECT '0'::roman;
+ roman 
+-------
+ nulla
+(1 row)
+
+SELECT '1'::roman;
+ roman 
+-------
+ I
+(1 row)
+
+SELECT '-2'::roman;
+  roman   
+----------
+ minus II
+(1 row)
+
+SELECT 'nulla'::roman;
+ roman 
+-------
+ nulla
+(1 row)
+
+SELECT 'I'::roman, 'i'::roman;
+ roman | roman 
+-------+-------
+ I     | I
+(1 row)
+
+SELECT 'V'::roman, 'v'::roman;
+ roman | roman 
+-------+-------
+ V     | V
+(1 row)
+
+SELECT 'X'::roman, 'x'::roman;
+ roman | roman 
+-------+-------
+ X     | X
+(1 row)
+
+SELECT 'L'::roman, 'l'::roman;
+ roman | roman 
+-------+-------
+ L     | L
+(1 row)
+
+SELECT 'C'::roman, 'c'::roman;
+ roman | roman 
+-------+-------
+ C     | C
+(1 row)
+
+SELECT 'D'::roman, 'd'::roman;
+ roman | roman 
+-------+-------
+ D     | D
+(1 row)
+
+SELECT 'M'::roman, 'm'::roman;
+ roman | roman 
+-------+-------
+ M     | M
+(1 row)
+
+SELECT 'minus I'::roman;
+  roman  
+---------
+ minus I
+(1 row)
+
+SELECT 'II'::roman;
+ roman 
+-------
+ II
+(1 row)
+
+SELECT 'III'::roman;
+ roman 
+-------
+ III
+(1 row)
+
+SELECT 'IV'::roman;
+ roman 
+-------
+ IV
+(1 row)
+
+SELECT 'V'::roman;
+ roman 
+-------
+ V
+(1 row)
+
+SELECT 'VI'::roman;
+ roman 
+-------
+ VI
+(1 row)
+
+SELECT 'IX'::roman;
+ roman 
+-------
+ IX
+(1 row)
+
+SELECT 'XI'::roman;
+ roman 
+-------
+ XI
+(1 row)
+
+SELECT 'XX'::roman;
+ roman 
+-------
+ XX
+(1 row)
+
+SELECT 'IL'::roman;
+ roman 
+-------
+ XLIX
+(1 row)
+
+SELECT 'LI'::roman;
+ roman 
+-------
+ LI
+(1 row)
+
+SELECT 'VL'::roman;
+ roman 
+-------
+ XLV
+(1 row)
+
+SELECT 'LV'::roman;
+ roman 
+-------
+ LV
+(1 row)
+
+SELECT 'XL'::roman;
+ roman 
+-------
+ XL
+(1 row)
+
+SELECT 'LX'::roman;
+ roman 
+-------
+ LX
+(1 row)
+
+SELECT 'XC'::roman;
+ roman 
+-------
+ XC
+(1 row)
+
+SELECT 'CX'::roman;
+ roman 
+-------
+ CX
+(1 row)
+
+SELECT 'CC'::roman;
+ roman 
+-------
+ CC
+(1 row)
+
+SELECT 'CD'::roman;
+ roman 
+-------
+ CD
+(1 row)
+
+SELECT 'DC'::roman;
+ roman 
+-------
+ DC
+(1 row)
+
+SELECT 'CM'::roman;
+ roman 
+-------
+ CM
+(1 row)
+
+SELECT 'MC'::roman;
+ roman 
+-------
+ MC
+(1 row)
+
+SELECT 'MM'::roman;
+ roman 
+-------
+ MM
+(1 row)
+
