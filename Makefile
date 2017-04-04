@@ -20,6 +20,7 @@ numeral.o: numeral.c numeral.h
 	flex -o $@ $<
 
 zahllexer.yy.o: numeral.h zahlparser.tab.c # actually zahlparser.tab.h
+romanlexer.yy.o: numeral.h romanparser.tab.c # actually romanparser.tab.h
 
 %.tab.c: %.y
 ifneq ($(shell bison --version | grep 'Bison..2'),)
@@ -30,6 +31,7 @@ else
 endif
 
 zahlparser.tab.o: numeral.h
+romanparser.tab.o: numeral.h
 
 # extension sql
 %.sql: %.sql.in
