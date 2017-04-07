@@ -7,10 +7,9 @@ numerals (words instead of digits) for input and output.
 
 Data types:
 
+* *numeral*: English numerals (one, two, three, four, ...), short scale (10^9 = trillion)
+* *zahl*: German numerals (eins, zwei, drei, vier, ...), long scale (10^9 = Milliarde)
 * *roman*: Roman numerals (I, II, III, IV, ...)
-* *zahl*: German numerals (eins, zwei, drei, vier, ...)
-
-Planned: English numerals
 
 [![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numeral.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numeral)
 

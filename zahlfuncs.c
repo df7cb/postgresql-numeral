@@ -139,7 +139,7 @@ struct zillions {
 	long long value;
 	const char *name1;
 	const char *name2;
-} zillions[] = {
+} static zillions[] = {
 	{ 1000000000000000000, "Trillion",  "Trillionen" },
 	{    1000000000000000, "Billiarde", "Billiarden" },
 	{       1000000000000, "Billion",   "Billionen"  },

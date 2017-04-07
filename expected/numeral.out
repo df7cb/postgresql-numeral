@@ -1,0 +1,402 @@
+SELECT '0'::numeral;
+ numeral 
+---------
+ null
+(1 row)
+
+SELECT '1'::numeral;
+ numeral 
+---------
+ one
+(1 row)
+
+SELECT '-2'::numeral;
+  numeral  
+-----------
+ minus two
+(1 row)
+
+SELECT 'zero'::numeral;
+ numeral 
+---------
+ null
+(1 row)
+
+SELECT 'one'::numeral;
+ numeral 
+---------
+ one
+(1 row)
+
+SELECT 'minus one'::numeral;
+  numeral  
+-----------
+ minus one
+(1 row)
+
+SELECT 'two'::numeral;
+ numeral 
+---------
+ two
+(1 row)
+
+SELECT 'three'::numeral;
+ numeral 
+---------
+ three
+(1 row)
+
+SELECT 'four'::numeral;
+ numeral 
+---------
+ four
+(1 row)
+
+SELECT 'five'::numeral;
+ numeral 
+---------
+ five
+(1 row)
+
+SELECT 'six'::numeral;
+ numeral 
+---------
+ six
+(1 row)
+
+SELECT 'seven'::numeral;
+ numeral 
+---------
+ seven
+(1 row)
+
+SELECT 'eight'::numeral;
+ numeral 
+---------
+ eight
+(1 row)
+
+SELECT 'nine'::numeral;
+ numeral 
+---------
+ nine
+(1 row)
+
+SELECT 'ten'::numeral;
+ numeral 
+---------
+ ten
+(1 row)
+
+SELECT 'eleven'::numeral;
+ numeral 
+---------
+ eleven
+(1 row)
+
+SELECT 'twelve'::numeral;
+ numeral 
+---------
+ twelve
+(1 row)
+
+SELECT 'thirteen'::numeral;
+ numeral  
+----------
+ thirteen
+(1 row)
+
+SELECT 'fourteen'::numeral;
+ numeral  
+----------
+ fourteen
+(1 row)
+
+SELECT 'fifteen'::numeral;
+ numeral 
+---------
+ fifteen
+(1 row)
+
+SELECT 'sixteen'::numeral;
+ numeral 
+---------
+ sixteen
+(1 row)
+
+SELECT 'seventeen'::numeral;
+  numeral  
+-----------
+ seventeen
+(1 row)
+
+SELECT 'eighteen'::numeral;
+ numeral  
+----------
+ eighteen
+(1 row)
+
+SELECT 'nineteen'::numeral;
+ numeral  
+----------
+ nineteen
+(1 row)
+
+SELECT 'twenty'::numeral;
+ numeral 
+---------
+ twenty
+(1 row)
+
+SELECT 'twenty-one'::numeral;
+  numeral   
+------------
+ twenty-one
+(1 row)
+
+SELECT 'thirty'::numeral;
+ numeral 
+---------
+ thirty
+(1 row)
+
+SELECT 'thirty-two'::numeral;
+  numeral   
+------------
+ thirty-two
+(1 row)
+
+SELECT 'forty'::numeral;
+ numeral 
+---------
+ forty
+(1 row)
+
+SELECT 'fifty'::numeral;
+ numeral 
+---------
+ fifty
+(1 row)
+
+SELECT 'sixty'::numeral;
+ numeral 
+---------
+ sixty
+(1 row)
+
+SELECT 'seventy'::numeral;
+ numeral 
+---------
+ seventy
+(1 row)
+
+SELECT 'eighty'::numeral;
+ numeral 
+---------
+ eighty
+(1 row)
+
+SELECT 'ninety'::numeral;
+ numeral 
+---------
+ ninety
+(1 row)
+
+SELECT 'hundred'::numeral;
+   numeral   
+-------------
+ one hundred
+(1 row)
+
+SELECT 'one hundred'::numeral;
+   numeral   
+-------------
+ one hundred
+(1 row)
+
+SELECT 'hundred one'::numeral;
+     numeral     
+-----------------
+ one hundred one
+(1 row)
+
+SELECT 'one hundred one'::numeral;
+     numeral     
+-----------------
+ one hundred one
+(1 row)
+
+SELECT 'one hundred twenty-one'::numeral;
+        numeral         
+------------------------
+ one hundred twenty-one
+(1 row)
+
+SELECT 'two hundred'::numeral;
+   numeral   
+-------------
+ two hundred
+(1 row)
+
+SELECT 'two hundred one'::numeral;
+     numeral     
+-----------------
+ two hundred one
+(1 row)
+
+SELECT 'two hundred thirty-two'::numeral;
+        numeral         
+------------------------
+ two hundred thirty-two
+(1 row)
+
+SELECT 'thousand'::numeral;
+   numeral    
+--------------
+ one thousand
+(1 row)
+
+SELECT 'one thousand'::numeral;
+   numeral    
+--------------
+ one thousand
+(1 row)
+
+SELECT 'one thousand one'::numeral;
+     numeral      
+------------------
+ one thousand one
+(1 row)
+
+SELECT 'thousand one hundred'::numeral;
+         numeral          
+--------------------------
+ one thousand one hundred
+(1 row)
+
+SELECT 'one thousand one hundred'::numeral;
+         numeral          
+--------------------------
+ one thousand one hundred
+(1 row)
+
+SELECT 'eleven hundred'::numeral;
+         numeral          
+--------------------------
+ one thousand one hundred
+(1 row)
+
+SELECT 'one thousand one hundred one'::numeral;
+           numeral            
+------------------------------
+ one thousand one hundred one
+(1 row)
+
+SELECT 'hundred thousand'::numeral;
+       numeral        
+----------------------
+ one hundred thousand
+(1 row)
+
+SELECT 'one hundred thousand'::numeral;
+       numeral        
+----------------------
+ one hundred thousand
+(1 row)
+
+SELECT 'one hundred one thousand'::numeral;
+         numeral          
+--------------------------
+ one hundred one thousand
+(1 row)
+
+SELECT 'two hundred thousand'::numeral;
+       numeral        
+----------------------
+ two hundred thousand
+(1 row)
+
+SELECT 'one million'::numeral;
+   numeral   
+-------------
+ one million
+(1 row)
+
+SELECT 'one million one'::numeral;
+     numeral     
+-----------------
+ one million one
+(1 row)
+
+SELECT 'one million one hundred'::numeral;
+         numeral         
+-------------------------
+ one million one hundred
+(1 row)
+
+SELECT 'one million one thousand'::numeral;
+         numeral          
+--------------------------
+ one million one thousand
+(1 row)
+
+SELECT 'one million one hundred thousand'::numeral;
+             numeral              
+----------------------------------
+ one million one hundred thousand
+(1 row)
+
+SELECT 'two million'::numeral;
+   numeral   
+-------------
+ two million
+(1 row)
+
+SELECT 'hundred million'::numeral;
+       numeral       
+---------------------
+ one hundred million
+(1 row)
+
+SELECT 'one billion'::numeral;
+   numeral   
+-------------
+ one billion
+(1 row)
+
+SELECT 'one billion one million'::numeral;
+         numeral         
+-------------------------
+ one billion one million
+(1 row)
+
+SELECT 'one billion one million one thousand'::numeral;
+               numeral                
+--------------------------------------
+ one billion one million one thousand
+(1 row)
+
+SELECT 'billion'::numeral;
+   numeral   
+-------------
+ one billion
+(1 row)
+
+SELECT 'trillion'::numeral;
+   numeral    
+--------------
+ one trillion
+(1 row)
+
+SELECT 'quadrillion'::numeral;
+     numeral     
+-----------------
+ one quadrillion
+(1 row)
+
+SELECT 'quintillion'::numeral;
+     numeral     
+-----------------
+ one quintillion
+(1 row)
+

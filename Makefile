@@ -1,10 +1,11 @@
 MODULE_big = numeral
 OBJS = numeral.o \
-	   zahl.o zahllexer.yy.o zahlparser.tab.o \
-	   roman.o romanlexer.yy.o romanparser.tab.o
+	   numeralfuncs.o numerallexer.yy.o numeralparser.tab.o \
+	   zahlfuncs.o zahllexer.yy.o zahlparser.tab.o \
+	   romanfuncs.o romanlexer.yy.o romanparser.tab.o
 EXTENSION = numeral
 DATA_built = numeral--1.sql
-REGRESS = extension zahl operator roman
+REGRESS = extension numeral zahl roman operator
 EXTRA_CLEAN = *.yy.* *.tab.*
 
 PG_CONFIG = pg_config
@@ -19,6 +20,7 @@ numeral.o: numeral.c numeral.h
 %.yy.c: %.l
 	flex -o $@ $<
 
+numerallexer.yy.o: numeral.h numeralparser.tab.c # actually numeralparser.tab.h
 zahllexer.yy.o: numeral.h zahlparser.tab.c # actually zahlparser.tab.h
 romanlexer.yy.o: numeral.h romanparser.tab.c # actually romanparser.tab.h
 
@@ -30,11 +32,12 @@ else
 	bison -d $<
 endif
 
+numeralparser.tab.o: numeral.h
 zahlparser.tab.o: numeral.h
 romanparser.tab.o: numeral.h
 
 # extension sql
 %.sql: %.sql.in
-	for type in zahl roman; do \
+	for type in numeral zahl roman; do \
 		sed -e "s/@TYPE@/$$type/g" < $< || exit; \
 	done > $@
