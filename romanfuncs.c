@@ -82,6 +82,8 @@ roman_cstring (Roman roman)
 		return psprintf("minus %s", roman_cstring(-roman));
 	} else if (roman == 0) {
 		return "nulla";
+	} else if (roman > 10000) {
+		return psprintf("%lld", roman);
 	}
 
 	return romanize(roman);

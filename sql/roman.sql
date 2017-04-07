@@ -3,6 +3,7 @@ SELECT '1'::roman;
 SELECT '-2'::roman;
 
 SELECT 'nulla'::roman;
+SELECT 'minus nulla'::roman;
 
 SELECT 'I'::roman, 'i'::roman;
 SELECT 'V'::roman, 'v'::roman;
@@ -13,6 +14,7 @@ SELECT 'D'::roman, 'd'::roman;
 SELECT 'M'::roman, 'm'::roman;
 
 SELECT 'minus I'::roman;
+SELECT 'minus 1'::roman;
 
 SELECT 'II'::roman;
 SELECT 'III'::roman;
@@ -36,3 +38,8 @@ SELECT 'DC'::roman;
 SELECT 'CM'::roman;
 SELECT 'MC'::roman;
 SELECT 'MM'::roman;
+
+SELECT '10000'::roman;
+SELECT '-10000'::roman;
+SELECT '10001'::roman;
+SELECT '-10001'::roman;

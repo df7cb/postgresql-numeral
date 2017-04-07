@@ -22,6 +22,12 @@ SELECT 'nulla'::roman;
  nulla
 (1 row)
 
+SELECT 'minus nulla'::roman;
+ roman 
+-------
+ nulla
+(1 row)
+
 SELECT 'I'::roman, 'i'::roman;
  roman | roman 
 -------+-------
@@ -65,6 +71,12 @@ SELECT 'M'::roman, 'm'::roman;
 (1 row)
 
 SELECT 'minus I'::roman;
+  roman  
+---------
+ minus I
+(1 row)
+
+SELECT 'minus 1'::roman;
   roman  
 ---------
  minus I
@@ -200,5 +212,29 @@ SELECT 'MM'::roman;
  roman 
 -------
  MM
+(1 row)
+
+SELECT '10000'::roman;
+   roman    
+------------
+ MMMMMMMMMM
+(1 row)
+
+SELECT '-10000'::roman;
+      roman       
+------------------
+ minus MMMMMMMMMM
+(1 row)
+
+SELECT '10001'::roman;
+ roman 
+-------
+ 10001
+(1 row)
+
+SELECT '-10001'::roman;
+    roman    
+-------------
+ minus 10001
 (1 row)
 

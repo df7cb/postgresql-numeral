@@ -32,7 +32,7 @@ INT_R [\-+]?[0-9]+
 }
 
 nulla { yyromanlval = 0; return ZERO; }
-minus { return MINUS; }
+minus { yyromanlval = -1; return MINUS; }
 [iI]  { yyromanlval = 1; return I; }
 [vV]  { yyromanlval = 5; return V; }
 [xX]  { yyromanlval = 10; return X; }

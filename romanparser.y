@@ -43,11 +43,14 @@ static Roman *numeral_parse_result; /* parsing result gets stored here */
 %%
 
 input: /* parser entry */
-  INT { *numeral_parse_result = $1; }
-| ZERO { *numeral_parse_result = 0; }
-| MINUS expr { *numeral_parse_result = -$2; }
-| expr { *numeral_parse_result = $1; }
+  maybe_minus INT  { *numeral_parse_result = $1 * $2; }
+| maybe_minus ZERO { *numeral_parse_result = 0; }
+| maybe_minus expr { *numeral_parse_result = $1 * $2; }
 ;
+
+maybe_minus:
+  %empty { $$ = 1; }
+| MINUS;
 
 expr:
   max_c M max_m { $$ = $2 - $1 + $3; }
