@@ -11,6 +11,8 @@ Data types:
 * *zahl*: German numerals (eins, zwei, drei, vier, ...), long scale (10⁹ = Milliarde)
 * *roman*: Roman numerals (I, II, III, IV, ...)
 
+Requires PostgreSQL >= 9.4 and Bison 3.
+
 [![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numeral.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numeral)
 
 Examples

@@ -28,12 +28,7 @@ zahllexer.yy.o: numeral.h zahlparser.tab.c # actually zahlparser.tab.h
 romanlexer.yy.o: numeral.h romanparser.tab.c # actually romanparser.tab.h
 
 %.tab.c: %.y
-ifneq ($(shell bison --version | grep 'Bison..2'),)
-	echo "### bison 2 detected, using pre-built *.tab.c and *.tab.h files ###" # remove this hack once wheezy and precise are gone
-	touch $@
-else
 	bison -d $<
-endif
 
 numeralparser.tab.o: numeral.h
 zahlparser.tab.o: numeral.h
