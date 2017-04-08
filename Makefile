@@ -12,8 +12,11 @@ PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
-# upgrade testing, not enabled by default
-#REGRESS += upgrade
+INCLUDEDIR_SERVER = $(shell $(PG_CONFIG) --includedir-server)
+FLOAT8PASSBYVAL = $(shell grep FLOAT8PASSBYVAL $(INCLUDEDIR_SERVER)/pg_config.h | grep -o true)
+ifeq ($(FLOAT8PASSBYVAL),true)
+PASSEDBYVALUE = passedbyvalue,
+endif
 
 numeral.o: numeral.c numeral.h
 
@@ -38,6 +41,7 @@ romanparser.tab.o: numeral.h
 
 # extension sql
 %.sql: %.sql.in
+	set -e; \
 	for type in numeral zahl roman; do \
-		sed -e "s/@TYPE@/$$type/g" < $< || exit; \
+		sed -e "s/@TYPE@/$$type/g" -e "s/@PASSEDBYVALUE@/$(PASSEDBYVALUE)/" < $<; \
 	done > $@

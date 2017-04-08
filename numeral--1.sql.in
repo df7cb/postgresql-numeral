@@ -30,7 +30,7 @@ CREATE TYPE @TYPE@ (
 	internallength = 8,
 	input = @TYPE@_in,
 	output = @TYPE@_out,
-	passedbyvalue,
+	@PASSEDBYVALUE@
 	alignment = double,
 	category = 'N'
 );
