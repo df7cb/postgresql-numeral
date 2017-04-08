@@ -7,7 +7,7 @@ numerals (words instead of digits) for input and output.
 
 Data types:
 
-* *numeral*: English numerals (one, two, three, four, ...), short scale (10⁹ = trillion)
+* *numeral*: English numerals (one, two, three, four, ...), short scale (10⁹ = billion)
 * *zahl*: German numerals (eins, zwei, drei, vier, ...), long scale (10⁹ = Milliarde)
 * *roman*: Roman numerals (I, II, III, IV, ...)
 
