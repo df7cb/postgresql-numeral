@@ -37,7 +37,7 @@ Implementation
 --------------
 
 The data types are internally binary compatible to *bigint*. Casts to and from
-bigint are defined (the latter as *implicit*). The module does not implement
+bigint are defined (to bigint as *implicit*). The module does not implement
 any operators but instead reuses the existing bigint operators. Effectively,
 the data types behave like bigint, just with different input/output functions.
 
