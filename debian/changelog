@@ -1,5 +1,5 @@
-postgresql-numeral (1.0) UNRELEASED; urgency=medium
+postgresql-numeral (1.0-1) unstable; urgency=medium
 
   * Initial release.
 
- -- Christoph Berg <myon@debian.org>  Sat, 01 Apr 2017 18:24:45 +0200
+ -- Christoph Berg <christoph.berg@credativ.de>  Mon, 04 Jun 2018 09:16:54 +0200

@@ -7,14 +7,14 @@ Build-Depends:
  debhelper (>> 9),
  flex,
  postgresql-server-dev-all (>= 153~),
-Standards-Version: 3.9.8
+Standards-Version: 4.1.4
 Vcs-Git: https://github.com/ChristophBerg/postgresql-numeral.git
 Vcs-Browser: https://github.com/ChristophBerg/postgresql-numeral
 Homepage: https://github.com/ChristophBerg/postgresql-numeral
 
-Package: postgresql-9.6-numeral
+Package: postgresql-10-numeral
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-9.6
+Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-10
 Description: numeral datatypes for PostgreSQL
  This module provides numeric data types for PostgreSQL that use
  numerals (words instead of digits) for input and output.
