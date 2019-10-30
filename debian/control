@@ -7,14 +7,14 @@ Build-Depends:
  debhelper (>> 9),
  flex,
  postgresql-server-dev-all (>= 153~),
-Standards-Version: 4.1.4
+Standards-Version: 4.4.0
 Vcs-Git: https://github.com/ChristophBerg/postgresql-numeral.git
 Vcs-Browser: https://github.com/ChristophBerg/postgresql-numeral
 Homepage: https://github.com/ChristophBerg/postgresql-numeral
 
-Package: postgresql-11-numeral
+Package: postgresql-12-numeral
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-11
+Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-12
 Description: numeral datatypes for PostgreSQL
  This module provides numeric data types for PostgreSQL that use
  numerals (words instead of digits) for input and output.
@@ -24,4 +24,3 @@ Description: numeral datatypes for PostgreSQL
   * zahl: German numerals (eins, zwei, drei, vier, ...),
     long scale (10^9 = Milliarde)
   * roman: Roman numerals (I, II, III, IV, ...)
-

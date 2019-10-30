@@ -1,3 +1,9 @@
+postgresql-numeral (1.0-3) unstable; urgency=medium
+
+  * Upload for PostgreSQL 12.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 30 Oct 2019 13:58:04 +0100
+
 postgresql-numeral (1.0-2) unstable; urgency=medium
 
   * Upload for PostgreSQL 11.
