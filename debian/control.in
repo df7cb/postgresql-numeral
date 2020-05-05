@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Christoph Berg <myon@debian.org>
 Build-Depends:
  bison,
- debhelper (>> 9),
+ debhelper (>= 12~),
  flex,
  postgresql-server-dev-all (>= 153~),
 Standards-Version: 4.4.0
