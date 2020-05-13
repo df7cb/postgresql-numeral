@@ -4,10 +4,10 @@ Priority: optional
 Maintainer: Christoph Berg <myon@debian.org>
 Build-Depends:
  bison,
- debhelper (>> 9),
+ debhelper-compat (= 12),
  flex,
  postgresql-server-dev-all (>= 153~),
-Standards-Version: 4.4.0
+Standards-Version: 4.5.0
 Vcs-Git: https://github.com/ChristophBerg/postgresql-numeral.git
 Vcs-Browser: https://github.com/ChristophBerg/postgresql-numeral
 Homepage: https://github.com/ChristophBerg/postgresql-numeral

@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files: *
 Copyright: (C) 2017 Christoph Berg
@@ -16,4 +16,4 @@ License: GPL-2+
  GNU General Public License for more details.
  .
  The full text of the GPL is distributed as in
- /usr/share/common-licenses/GPL on Debian systems.
+ /usr/share/common-licenses/GPL-2 on Debian systems.
