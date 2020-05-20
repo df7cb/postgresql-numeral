@@ -8,9 +8,9 @@ Build-Depends:
  flex,
  postgresql-server-dev-all (>= 153~),
 Standards-Version: 4.5.0
-Vcs-Git: https://github.com/ChristophBerg/postgresql-numeral.git
-Vcs-Browser: https://github.com/ChristophBerg/postgresql-numeral
-Homepage: https://github.com/ChristophBerg/postgresql-numeral
+Vcs-Git: https://github.com/df7cb/postgresql-numeral.git
+Vcs-Browser: https://github.com/df7cb/postgresql-numeral
+Homepage: https://github.com/df7cb/postgresql-numeral
 
 Package: postgresql-PGVERSION-numeral
 Architecture: any
