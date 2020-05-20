@@ -1,5 +1,6 @@
-postgresql-numeral (1.0-4) UNRELEASED; urgency=medium
+postgresql-numeral (1.1-1) UNRELEASED; urgency=medium
 
+  [ Debian Janitor ]
   * Use secure copyright file specification URI.
   * Bump debhelper from deprecated 9 to 12.
   * Set debhelper-compat version in Build-Depends.
@@ -7,6 +8,9 @@ postgresql-numeral (1.0-4) UNRELEASED; urgency=medium
     Repository-Browse.
   * Refer to specific version of license GPL-2+.
   * Update standards version to 4.5.0, no changes needed.
+
+  [ Christoph Berg ]
+  * Fix zero numeral.
 
  -- Debian Janitor <janitor@jelmer.uk>  Tue, 05 May 2020 08:32:20 +0000
 

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2017 Christoph Berg
+Copyright (C) 2017, 2020 Christoph Berg
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -55,7 +55,7 @@ numeral_out(PG_FUNCTION_ARGS)
 	PG_RETURN_CSTRING(numeral_cstring(numeral));
 }
 
-/* format German numerals */
+/* format English numerals */
 
 static const char *numeral_one[] = {
 	"",
@@ -181,7 +181,7 @@ numeral_cstring (Numeral numeral)
 	if (numeral < 0) {
 		return psprintf("minus %s", numeral_cstring(-numeral));
 	} else if (numeral == 0) {
-		return "null";
+		return "zero";
 	}
 
 	return numeral_zillion(numeral);
