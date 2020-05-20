@@ -11,9 +11,9 @@ Data types:
 * *zahl*: German numerals (eins, zwei, drei, vier, ...), long scale (10⁹ = Milliarde)
 * *roman*: Roman numerals (I, II, III, IV, ...)
 
-Requires PostgreSQL >= 9.4 and Bison 3.
+Requires PostgreSQL >= 9.4 (currently up to 13) and Bison 3.
 
-[![Build Status](https://travis-ci.org/ChristophBerg/postgresql-numeral.svg?branch=master)](https://travis-ci.org/ChristophBerg/postgresql-numeral)
+[![Build Status](https://travis-ci.org/df7cb/postgresql-numeral.svg?branch=master)](https://travis-ci.org/df7cb/postgresql-numeral)
 
 Examples
 --------
@@ -46,7 +46,7 @@ the data types behave like bigint, just with different input/output functions.
 License
 -------
 
-Copyright (C) 2017 Christoph Berg
+Copyright (C) 2017, 2020 Christoph Berg
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
