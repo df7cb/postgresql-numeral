@@ -13,9 +13,9 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 INCLUDEDIR_SERVER = $(shell $(PG_CONFIG) --includedir-server)
-# FLOAT8PASSBYVAL moved from pg_config.h to c.h in PG13
-FLOAT8PASSBYVAL = $(shell grep FLOAT8PASSBYVAL $(INCLUDEDIR_SERVER)/pg_config.h $(INCLUDEDIR_SERVER)/c.h | grep -o true)
-ifeq ($(FLOAT8PASSBYVAL),true)
+# FLOAT8PASSBYVAL is derived from SIZEOF_VOID_P
+SIZEOF_VOID_P = $(shell grep '^.define SIZEOF_VOID_P' $(INCLUDEDIR_SERVER)/pg_config.h | cut -d ' ' -f 3)
+ifeq ($(SIZEOF_VOID_P),8)
 PASSEDBYVALUE = passedbyvalue,
 endif
 
