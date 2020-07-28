@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2017 Christoph Berg
+Copyright (C) 2017-2020 Christoph Berg
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ GNU General Public License for more details.
 
 /* input and output */
 
-char *yyerrstr; /* copy of error catched by yyromanerror() */
+extern char *yyerrstr; /* copy of error catched by yyromanerror() */
 
 void yyromanerror (char *s);
 
