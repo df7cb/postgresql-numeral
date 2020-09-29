@@ -6,7 +6,7 @@ Build-Depends:
  bison,
  debhelper-compat (= 13),
  flex,
- postgresql-server-dev-all (>= 217~),
+ postgresql-all (>= 217~),
 Standards-Version: 4.5.0
 Vcs-Git: https://github.com/df7cb/postgresql-numeral.git
 Vcs-Browser: https://github.com/df7cb/postgresql-numeral
