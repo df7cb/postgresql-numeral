@@ -4,4 +4,4 @@ override_dh_installdocs:
 	dh_installdocs --all README.*
 
 %:
-	dh $@ --buildsystem=pgxs
+	dh $@ --with pgxs
