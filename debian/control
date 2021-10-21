@@ -13,9 +13,9 @@ Vcs-Git: https://github.com/df7cb/postgresql-numeral.git
 Vcs-Browser: https://github.com/df7cb/postgresql-numeral
 Homepage: https://github.com/df7cb/postgresql-numeral
 
-Package: postgresql-13-numeral
+Package: postgresql-14-numeral
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-13
+Depends: ${misc:Depends}, ${shlibs:Depends}, postgresql-14
 Description: numeral datatypes for PostgreSQL
  This module provides numeric data types for PostgreSQL that use
  numerals (words instead of digits) for input and output.
