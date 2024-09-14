@@ -1,3 +1,11 @@
+postgresql-numeral (1.3-7) unstable; urgency=medium
+
+  * Upload for PostgreSQL 17.
+  * Restrict to 64-bit architectures.
+  * Mark postgresql-all as <!nocheck>.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 14 Sep 2024 23:31:56 +0200
+
 postgresql-numeral (1.3-6) unstable; urgency=medium
 
   * Upload for PostgreSQL 16.

@@ -3,19 +3,24 @@ Section: database
 Priority: optional
 Maintainer: Christoph Berg <myon@debian.org>
 Build-Depends:
+ architecture-is-64-bit <!pkg.postgresql.32-bit>,
  bison,
  debhelper-compat (= 13),
  flex,
- postgresql-all (>= 217~),
-Standards-Version: 4.6.2
+ postgresql-all <!nocheck>,
+ postgresql-server-dev-all,
+Standards-Version: 4.7.0
 Rules-Requires-Root: no
 Vcs-Git: https://github.com/df7cb/postgresql-numeral.git
 Vcs-Browser: https://github.com/df7cb/postgresql-numeral
 Homepage: https://github.com/df7cb/postgresql-numeral
 
-Package: postgresql-16-numeral
+Package: postgresql-17-numeral
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, ${postgresql:Depends}
+Depends:
+ ${misc:Depends},
+ ${postgresql:Depends},
+ ${shlibs:Depends},
 Description: numeral datatypes for PostgreSQL
  This module provides numeric data types for PostgreSQL that use
  numerals (words instead of digits) for input and output.
