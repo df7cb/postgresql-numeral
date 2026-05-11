@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+export LC_ALL=C.UTF-8
+
 override_dh_installdocs:
 	dh_installdocs --all README.*
 
