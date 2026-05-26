@@ -1,0 +1,24 @@
+name: Test PG extension
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    pgversions:
+        uses: df7cb/pg-github-workflows/.github/workflows/pgversions.yml@main
+
+    pgtest:
+        needs: pgversions
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                pgversion: ${{ fromJson(needs.pgversions.outputs.pgversions) }}
+        steps:
+            - run: echo ${{ matrix.pgversion }}
+            - uses: df7cb/pg-github-workflows@main
+              with:
+                pgversion: ${{ matrix.pgversion }}
+            - run: psql -c 'select version()'
